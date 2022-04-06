@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router'
 import Head from 'next/head'
 
-const url = process.env.VERCEL_URL
+const url = process.env.SERVER_URL
 
 export async function getServerSideProps({ params }){
     const req = await fetch(`${url}/${params.id}.json`);
