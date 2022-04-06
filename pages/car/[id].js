@@ -12,7 +12,7 @@ const url = process.env.SERVER_URL
 // }
 
 export async function getStaticProps({ params }){
-    const req = await fetch(`http://localhost:3000/${params.id}.json`);
+    const req = await fetch(`${url}/${params.id}.json`);
     const data = await req.json();
     return {
         props: { car : data}
@@ -20,7 +20,7 @@ export async function getStaticProps({ params }){
 }
 
 export async function getStaticPaths() {
-    const req = await fetch("http://localhost:3000/car.json");
+    const req = await fetch(`${url}/car.json`);
     const data = await req.json();
 
     const paths = data.map(car => {
