@@ -1,10 +1,10 @@
 import {useRouter} from 'next/router'
 import Head from 'next/head'
 
-const url = process.env.VERCEL_URL ||` http://localhost:3000`
+const url = process.env.VERCEL_URL
 
 export async function getServerSideProps({ params }){
-    const req = await fetch(url+`/${params.id}.json`);
+    const req = await fetch(`${url}/${params.id}.json`);
     const data = await req.json();
     return {
         props: { car : data}
